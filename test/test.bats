@@ -2,7 +2,6 @@
 #
 # How to run:
 #   ~$ bats test/test.bats
-#
 
 BATS_TEST_SKIPPED=
 
