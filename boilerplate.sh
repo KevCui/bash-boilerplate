@@ -30,7 +30,7 @@ set_var() {
 
 set_command() {
     # Declare commands
-    _ECHO="$(command -v echo)" || command_not_found "echo"
+    _ECHO="$(command -v echo)" || command_not_found "echo" "echoland"
 }
 
 set_args() {
@@ -61,7 +61,10 @@ set_args() {
 command_not_found() {
     # Show command not found message
     # $1: command name
-    printf "%b\n" '\033[31m'"$1"'\033[0m command not found!' && exit 1
+    # $2:installation URL
+    printf "%b\n" '\033[31m'"$1"'\033[0m command not found!'
+    [[ -n "${2:-}" ]] && printf "%b\n" 'Install from \033[31m'"$2"'\033[0m'
+    exit 1
 }
 
 check_var() {

@@ -22,6 +22,13 @@ teardown() {
     [ "$output" = "[31mbats[0m command not found!" ]
 }
 
+@test "CHECK: command_not_found(): show where-to-install" {
+    run command_not_found "bats" "batsland"
+    [ "$status" -eq 1 ]
+    [ "${lines[0]}" = "[31mbats[0m command not found!" ]
+    [ "${lines[1]}" = "Install from [31mbatsland[0m" ]
+}
+
 @test "CHECK: check_var(): all mandatory variables are set" {
     run check_var
     [ "$status" -eq 0 ]
