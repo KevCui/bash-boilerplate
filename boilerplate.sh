@@ -61,7 +61,7 @@ set_args() {
 command_not_found() {
     # Show command not found message
     # $1: command name
-    # $2:installation URL
+    # $2: installation URL
     printf "%b\n" '\033[31m'"$1"'\033[0m command not found!'
     [[ -n "${2:-}" ]] && printf "%b\n" 'Install from \033[31m'"$2"'\033[0m'
     exit 1
