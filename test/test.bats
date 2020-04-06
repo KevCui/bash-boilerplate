@@ -38,7 +38,7 @@ teardown() {
 @test "CHECK: check_var(): no \$_PARAM_A" {
     unset _PARAM_A
     run check_var
-    [ "$status" -eq 0 ]
+    [ "$status" -eq 1 ]
     [ "${lines[0]}" = "-a <parama> is missing!" ]
 }
 

@@ -20,7 +20,7 @@ set -u
 
 usage() {
     # Display usage message
-    printf "%b\n" "$(grep '^#/' "$0" | cut -c4-)" && exit 0
+    printf "%b\n" "$(grep '^#/' "$0" | cut -c4-)" && exit 1
 }
 
 set_var() {
