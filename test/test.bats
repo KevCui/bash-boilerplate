@@ -16,17 +16,28 @@ teardown() {
     echo "cleanup"
 }
 
+@test "CHECK: print_info()" {
+    run print_info "this is an INFO"
+    [ "$status" -eq 0 ]
+    [ "$output" = "[32m[INFO][0m this is an INFO" ]
+}
+
+@test "CHECK: print_error()" {
+    run print_error "this is an ERROR"
+    [ "$status" -eq 1 ]
+    [ "$output" = "[31m[ERROR][0m this is an ERROR" ]
+}
+
 @test "CHECK: command_not_found()" {
     run command_not_found "bats"
     [ "$status" -eq 1 ]
-    [ "$output" = "[31mbats[0m command not found!" ]
+    [ "$output" = "[31m[ERROR][0m bats command not found!" ]
 }
 
 @test "CHECK: command_not_found(): show where-to-install" {
     run command_not_found "bats" "batsland"
     [ "$status" -eq 1 ]
-    [ "${lines[0]}" = "[31mbats[0m command not found!" ]
-    [ "${lines[1]}" = "Install from [31mbatsland[0m" ]
+    [ "$output" = "[31m[ERROR][0m bats command not found! Install from batsland" ]
 }
 
 @test "CHECK: check_var(): all mandatory variables are set" {

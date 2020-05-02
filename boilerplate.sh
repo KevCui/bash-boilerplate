@@ -58,13 +58,28 @@ set_args() {
     done
 }
 
+print_info() {
+    # Display info message
+    # $1: info message
+    printf "%b\n" "\033[32m[INFO]\033[0m $1" >&2
+}
+
+print_error() {
+    # Display error message and exit script
+    # $1: error message
+    printf "%b\n" "\033[31m[ERROR]\033[0m $1" >&2
+    exit 1
+}
+
 command_not_found() {
     # Show command not found message
     # $1: command name
     # $2: installation URL
-    printf "%b\n" '\033[31m'"$1"'\033[0m command not found!'
-    [[ -n "${2:-}" ]] && printf "%b\n" 'Install from \033[31m'"$2"'\033[0m'
-    exit 1
+    if [[ -n "${2:-}" ]]; then
+        print_error "$1 command not found! Install from $2"
+    else
+        print_error "$1 command not found!"
+    fi
 }
 
 check_var() {
