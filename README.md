@@ -1,5 +1,4 @@
-bash-boilerplate
-================
+# bash-boilerplate ![CI](https://github.com/KevCui/bash-boilerplate/workflows/CI/badge.svg)
 
 A Bash script boilerplate
 
