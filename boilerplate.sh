@@ -6,10 +6,10 @@
 #/   ./boilerplate.sh -a <parama> [-b|-c <paramc>]
 #/
 #/ Options:
-#/   -a               Required, param a
-#/   -b               Optional, trigger b
-#/   -c               Optional, param c
-#/   -h | --help      Display this help message
+#/   -a               required, param a
+#/   -b               optional, trigger b
+#/   -c               optional, param c
+#/   -h | --help      display this help message
 #/
 #/ Examples:
 #/   \e[32m- This is an exmaple:\e[0m
