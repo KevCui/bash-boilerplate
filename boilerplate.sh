@@ -12,8 +12,8 @@
 #/   -h | --help      display this help message
 #/
 #/ Examples:
-#/   \e[32m- This is an exmaple:\e[0m
-#/     ~$ ./boilerplate.sh \e[33m-a 'hello'\e[0m
+#/   \033[32m- This is an exmaple:\033[0m
+#/     ~$ ./boilerplate.sh \033[33m-a 'hello'\033[0m
 
 set -e
 set -u
