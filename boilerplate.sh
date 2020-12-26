@@ -100,7 +100,7 @@ print_result() {
     if [[ ${_TRIGGER_B:-} ]]; then
         output="$output\n$_TEXT_B"
     fi
-    $_ECHO -e "$output" >&2
+    "$_ECHO" -e "$output" >&2
 }
 
 main() {
